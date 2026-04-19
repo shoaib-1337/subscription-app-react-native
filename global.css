@@ -243,7 +243,7 @@
     }
 
     .auth-brand-block {
-        @apply mt-2 items-center;
+        @apply mt-8 items-center;
     }
 
     .auth-logo-wrap {
@@ -307,7 +307,7 @@
     }
 
     .auth-button {
-        @apply mt-1 items-center rounded-2xl bg-accent py-4;
+        @apply mt-1 items-center rounded-full bg-accent py-4;
     }
 
     .auth-button-disabled {
@@ -315,7 +315,7 @@
     }
 
     .auth-button-text {
-        @apply text-base font-sans-bold text-primary;
+        @apply text-base font-sans-bold text-white;
     }
 
     .auth-secondary-button {
