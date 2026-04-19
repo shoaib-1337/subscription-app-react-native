@@ -1,5 +1,6 @@
 import { tokenCache } from "@/lib/tokenCache";
 import { ClerkProvider, ClerkLoaded } from "@clerk/expo";
+import { PostHogProvider } from "posthog-react-native";
 
 import "@/global.css";
 import { useFonts } from "expo-font";
@@ -42,10 +43,15 @@ function RootLayoutNav() {
 
 export default function RootLayout() {
   return (
-    <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
-      <ClerkLoaded>
-        <RootLayoutNav />
-      </ClerkLoaded>
-    </ClerkProvider>
+    <PostHogProvider
+      apiKey={process.env.EXPO_PUBLIC_POSTHOG_API_KEY!}
+      options={{ host: process.env.EXPO_PUBLIC_POSTHOG_HOST }}
+    >
+      <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
+        <ClerkLoaded>
+          <RootLayoutNav />
+        </ClerkLoaded>
+      </ClerkProvider>
+    </PostHogProvider>
   );
 }
